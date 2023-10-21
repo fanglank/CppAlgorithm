@@ -12,6 +12,7 @@
 #include "./src/chapter2/subarraySum.cpp"
 #include "./src/chapter2/findMaxLength.cpp"
 #include "./src/chapter2/pivotIndex.cpp"
+#include "./src/chapter2/NumMatrix.cpp"
 using namespace std;
 using namespace chapter2;
 
@@ -68,5 +69,15 @@ int main() {
     numbers = {1,7,3,6,2,9};
     int res14 = pivotIndex(numbers);
     cout <<"res14:"<<res14<<endl;
+    
+    vector<vector<int> > matrix;//(5, vector<int>(5)); // = {{3,0,1,4,2},{5,6,3,2,1},{1,2,0,1,5},{4,1,0,1,7},{1,0,3,0,5}};
+    matrix.push_back({3,0,1,4,2});
+    matrix.push_back({5,6,3,2,1});
+    matrix.push_back({1,2,0,1,5});
+    matrix.push_back({4,1,0,1,7});
+    matrix.push_back({1,0,3,0,5});
+    NumMatrix nMatrix(matrix);
+    int res15 = nMatrix.sumRegion(2,1,4,3);
+    cout <<"res15:"<<res15<<endl;
     return 0;
 }
