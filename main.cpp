@@ -13,6 +13,9 @@
 #include "./src/chapter2/findMaxLength.cpp"
 #include "./src/chapter2/pivotIndex.cpp"
 #include "./src/chapter2/NumMatrix.cpp"
+#include "./src/chapter3/checkInclusion.cpp"
+#include "./src/chapter3/lengthOfLongestSubstring.cpp"
+#include "./src/chapter3/minWindow.cpp"
 using namespace std;
 using namespace chapter2;
 
@@ -79,5 +82,28 @@ int main() {
     NumMatrix nMatrix(matrix);
     int res15 = nMatrix.sumRegion(2,1,4,3);
     cout <<"res15:"<<res15<<endl;
+
+    string s1 = "ca";
+    string s2 = "dgcaf";
+    bool res16 = checkInclusion(s1,s2);
+    cout<<"res16:"<<res16<<endl;
+    s1 = "cbadabacg";
+    s2 = "abc";
+    vector<int> res17 = findAnagrams(s1, s2);
+    for(auto item:res17) {
+        cout <<"items:"<<item<<endl;
+    }
+
+    s1="babcca";
+    int res18 = lengthOfLongestSubstring(s1);
+    cout<<"res18:"<<res18<<endl;
+    int res19 = lengthOfLongestSubstring1(s1);
+    cout<<"res19:"<<res19<<endl;
+    s1 = "ADDBANCAD";
+    s2 = "ABC";
+    string res20 = minWin(s1, s2);
+    cout<<"res20:"<<res20<<endl;
+    string res21 = minWin1(s1, s2);
+    cout <<"res21:"<<res21<<endl;
     return 0;
 }
