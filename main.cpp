@@ -16,6 +16,8 @@
 #include "./src/chapter3/checkInclusion.cpp"
 #include "./src/chapter3/lengthOfLongestSubstring.cpp"
 #include "./src/chapter3/minWindow.cpp"
+#include "./src/chapter3/validPalindrome.cpp"
+#include "./src/chapter3/countSubStrings.cpp"
 using namespace std;
 using namespace chapter2;
 
@@ -105,5 +107,11 @@ int main() {
     cout<<"res20:"<<res20<<endl;
     string res21 = minWin1(s1, s2);
     cout <<"res21:"<<res21<<endl;
+    s1 = "abda";
+    bool res22 = validPalindrome(s1);
+    cout <<"res22:"<<res22<<endl;
+    s1 = "abcba";
+    int res23 = countSumstrings(s1);
+    cout <<"res23:"<<res23<<endl;
     return 0;
 }
