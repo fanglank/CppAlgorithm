@@ -18,6 +18,7 @@
 #include "./src/chapter3/minWindow.cpp"
 #include "./src/chapter3/validPalindrome.cpp"
 #include "./src/chapter3/countSubStrings.cpp"
+#include "./src/chapter4/ListNode.cpp"
 using namespace std;
 using namespace chapter2;
 
@@ -113,5 +114,16 @@ int main() {
     s1 = "abcba";
     int res23 = countSumstrings(s1);
     cout <<"res23:"<<res23<<endl;
+    vector<int> list = {1,2,3,4,5,6};
+    ListNode *first  = new ListNode(0);
+    ListNode * dummy = first;
+    for(auto num: list) {
+        
+        dummy->next = new ListNode(num);
+        dummy = dummy->next;
+    }
+    ListNode *lN = new ListNode();
+    lN->removeNthFromEnd(first,4);
+
     return 0;
 }
