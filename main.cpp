@@ -19,9 +19,28 @@
 #include "./src/chapter3/validPalindrome.cpp"
 #include "./src/chapter3/countSubStrings.cpp"
 #include "./src/chapter4/ListNode.cpp"
+#include "./src/chapter5/RandomizedSet.cpp"
+#include "./src/chapter5/LRUCache.cpp"
+#include "./src/chapter5/isAnagram.cpp"
+#include "./src/chapter5/groupAnagrams.cpp"
+#include "./src/chapter5/isAlienSorted.cpp"
+#include "./src/chapter5/findMinDifference.cpp"
+#include "./src/chapter6/evalRPN.cpp"
+#include "./src/chapter6/asteroidCollision.cpp"
+#include "./src/chapter6/dailyTemperatures.cpp"
+#include "./src/chapter6/largestRectangleArea.cpp"
+
+#include "./src/chapter7/MovingAverage.cpp"
+#include "./src/chapter7/bfs.cpp"
+#include "./src/chapter7/CBTInserter.cpp"
+#include "./src/chapter7/largestValues.cpp"
+#include "./src/chapter7/findBottomLeftValue.cpp"
+#include "./src/chapter8/TreeNode.cpp"
+#include "./src/chapter8/BinaryTree.cpp"
 using namespace std;
 using namespace chapter2;
-
+// using namespace chapter8;
+// using namespace chapter5;
 int main() {
     int res = divide(15,2);
     std::cout <<"result:" << res <<std::endl;
@@ -118,12 +137,55 @@ int main() {
     ListNode *first  = new ListNode(0);
     ListNode * dummy = first;
     for(auto num: list) {
-        
         dummy->next = new ListNode(num);
         dummy = dummy->next;
     }
     ListNode *lN = new ListNode();
     lN->removeNthFromEnd(first,4);
 
+    RandomizedSet rs;
+    rs.insert(1);
+    rs.insert(2);
+    rs.insert(3);
+
+    rs.remove(2);
+    int res24 = rs.getRandom();
+    cout<<"res24:"<<res24<<endl;
+    int res25 = rs.getRandom();
+    cout<<"res25:"<<res25<<endl;
+    chapter5::LRUCache *lru = new chapter5::LRUCache(4);
+    lru->put(1,1);
+    lru->put(2,2);
+    lru->put(3,3);
+    lru->put(4,4);
+    lru->put(5,5);
+    lru->get(2);
+    s1="anagram";
+    s2="nagaran";
+    bool res26 = isAnagram(s1,s2);
+    cout<<"res26:"<<res26<<endl;
+    bool res27 = isAnagram1(s1,s2);
+    cout<<"res27:"<<res27<<endl;
+    s1 = "zyxwvutsrqponmlkjihgfedcba";
+    vector<string> strings ={"offer", "is", "yoming"};
+
+    bool res28 = isAlienSorted(strings, s1);
+    cout<<"res28:"<<res28<<endl;
+    vector<string> ves = {"2", "1", "3", "*", "+"};
+    int res29 = evalRPN(ves);
+    cout<<"res29:"<<res29<<endl;
+    vector<int> ast = {4,5,-6,4,8,-5};
+    vector<int> res30 = asteroidCollision(ast);
+    cout<<"res30:"<<res30.size()<<endl;
+    vector<int> tem = {35,31,33,36,34};
+    vector<int> res31 = dailyTemperatures(tem);
+    cout<<"res31:"<<res31.size()<<endl;
+    vector<int> rec = {3,2,5,4,6,1,4,2};
+    int res32 = largestRectangleArea(rec);
+    cout<<"res32:"<<res32<<endl;
+    rec = {1,2,3,4,5,6,7};
+    chapter7::MovingAverage *mag = new chapter7::MovingAverage(3);
+    double res34 = mag ->next(3);
+    cout<<"res34:"<<res34<<endl;
     return 0;
 }
