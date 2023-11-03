@@ -1,6 +1,7 @@
-#include "TreeNode.cpp"
+// #include "TreeNode.cpp"
 #include <vector>
 #include <stack>
+#include <unordered_set>
 #include <map>
 using namespace std;
 
@@ -226,6 +227,7 @@ namespace chapter8{
         *maxSum = max(*maxSum, l+r+root->val);
         return max(l+root->val, r+root->val);
     }
+
     
     int maxPathSum(TreeNode* node){
         int i = INT_MIN;
@@ -237,6 +239,125 @@ namespace chapter8{
     int sumNumbers(TreeNode* root){
         return sumDfs(root, 0);
     }
+
+
+    TreeNode* increasingBST(TreeNode* root) {
+        stack<TreeNode*> sta;
+        TreeNode* cur = root;
+        TreeNode* pre = nullptr;
+        TreeNode* first = nullptr;
+        while(cur!=nullptr || !sta.empty()){
+            while (cur!=nullptr)
+            {
+                sta.push(cur);
+                cur = cur->left;
+            }
+
+            cur = sta.top();
+            sta.pop();
+            if(pre !=nullptr) {
+                pre->right = cur;
+            }else {
+                first = cur;
+            }
+            pre = cur;
+            cur->left = nullptr;
+            cur = cur->left;
+        }
+
+        return first;
+
+    }
+
+    TreeNode *inorderSuccessor(TreeNode *root, TreeNode *p)
+    {
+        stack<TreeNode *> stack;
+        TreeNode *cur = root;
+        bool found = false;
+        while (cur != nullptr || !stack.empty())
+        {
+            while (cur != nullptr)
+            {
+                stack.push(cur);
+                cur = cur->left;
+            }
+
+            cur = stack.top();
+            stack.pop();
+            if (found)
+            {
+                // return cur;
+                break;
+            }
+            else if (p == cur)
+            {
+                found = true;
+            }
+            cur = cur->right;
+        }
+
+        return cur;
+    }
+
+    TreeNode *inorderSuccessor1(TreeNode *root, TreeNode *p){
+        TreeNode* cur = root;
+        TreeNode *result = nullptr;
+        while(cur!=nullptr) {
+            if(cur->val > p->val){
+                result = cur;
+                cur = cur->left;
+            }else {
+                cur = cur->right;
+            }
+        }
+
+        return result;
+    }
+
+    TreeNode* convertBST(TreeNode* root) {
+        stack<TreeNode*> sta;
+        TreeNode* cur = root;
+        int sum =0;
+        while(cur != nullptr || !sta.empty()){
+            while (cur!=nullptr)
+            {
+                sta.push(cur);
+                cur = cur->right;
+            }
+            cur = sta.top();
+            sta.pop();
+            sum+=cur->val;
+            cur->val = sum;
+            cur = cur->left;
+        }
+
+        return root;
+    }
+
+    bool findTarget(TreeNode* root, int k) {
+        unordered_set<int> unset;
+        stack<TreeNode*> sta;
+        TreeNode* cur = root;
+        while(cur!=nullptr || !sta.empty()){
+            while (cur!=nullptr)
+            {
+                sta.push(cur);
+                cur =cur->left;
+            }
+
+            cur = sta.top();
+            sta.pop();
+            if(unset.count(k-cur->val)>0){
+                return true;
+            }
+
+            unset.insert(cur->val);
+            cur = cur->right;
+        }
+        return false;
+
+    }
+
 
     BinaryTree::~BinaryTree()
     {
