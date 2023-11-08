@@ -37,10 +37,11 @@
 #include "./src/chapter7/findBottomLeftValue.cpp"
 #include "./src/chapter8/TreeNode.cpp"
 #include "./src/chapter8/BinaryTree.cpp"
+#include "./src/chapter8/MyCalendar.cpp"
+#include "./src/chapter8/KthLargest.cpp"
+#include "./src/chapter8/topKFrequent.cpp"
 using namespace std;
 using namespace chapter2;
-// using namespace chapter8;
-// using namespace chapter5;
 int main() {
     int res = divide(15,2);
     std::cout <<"result:" << res <<std::endl;
