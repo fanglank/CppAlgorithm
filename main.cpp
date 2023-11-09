@@ -40,6 +40,8 @@
 #include "./src/chapter8/MyCalendar.cpp"
 #include "./src/chapter8/KthLargest.cpp"
 #include "./src/chapter8/topKFrequent.cpp"
+#include "./src/chapter8/kSmallestPairs.cpp"
+
 using namespace std;
 using namespace chapter2;
 int main() {
@@ -188,5 +190,13 @@ int main() {
     chapter7::MovingAverage *mag = new chapter7::MovingAverage(3);
     double res34 = mag ->next(3);
     cout<<"res34:"<<res34<<endl;
+    rec = {1,5,13,21};
+    vector<int> rec33 = {2,4,9,15};
+    vector<vector<int> > res35 = kSmallEstPairs(rec, rec33, 3);
+    for(vector<int> it :res35){
+        for(int it1:it){
+            cout<<it1<<endl;
+        }
+    }
     return 0;
 }
